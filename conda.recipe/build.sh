@@ -1,8 +1,5 @@
 #!/bin/bash
 
-export CFLAGS="${CFLAGS} -I/usr/include"
-export CXXFLAGS="${CXXFLAGS} -I/usr/include"
-
 export CMAKE_CONFIG="Release"
 
 mkdir "build_${PKG_NAME}_${CMAKE_CONFIG}"
