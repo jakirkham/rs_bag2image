@@ -3,20 +3,12 @@
 
 #include <librealsense2/rs.hpp>
 #include <opencv2/opencv.hpp>
+#include <boost/filesystem.hpp>
 
 #include <array>
-#ifdef WIN32
-#include <experimental/filesystem>
-namespace filesystem = std::experimental::filesystem::v1;
-#else
-#if __has_include(<filesystem>)
-#include <filesystem>
-namespace filesystem = std::filesystem;
-#else
-#include <experimental/filesystem>
-namespace filesystem = std::experimental::filesystem;
-#endif
-#endif
+
+namespace filesystem = boost::filesystem;
+
 
 class RealSense
 {

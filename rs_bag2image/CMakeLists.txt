@@ -21,15 +21,17 @@ find_package( realsense2 REQUIRED )
 set( OpenCV_DIR "C:/Program Files/opencv/build" CACHE PATH "Path to OpenCV config directory." )
 find_package( OpenCV REQUIRED )
 
-if( realsense2_FOUND AND OpenCV_FOUND )
+# Boost
+find_package( Boost REQUIRED COMPONENTS filesystem )
+
+if( realsense2_FOUND AND OpenCV_FOUND AND Boost_FOUND )
   # Additional Include Directories
   include_directories( ${realsense_INCLUDE_DIR} )
   include_directories( ${OpenCV_INCLUDE_DIRS} )
+  include_directories( ${Boost_INCLUDE_DIRS} )
 
   # Additional Dependencies
   target_link_libraries( rs_bag2image ${realsense2_LIBRARY} )
   target_link_libraries( rs_bag2image ${OpenCV_LIBS} )
-  if( NOT WIN32 )
-      target_link_libraries( rs_bag2image stdc++fs )
-  endif()
+  target_link_libraries( rs_bag2image ${Boost_LIBRARIES} )
 endif()
