@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ln -s "/usr/include/librealsense2" "${PREFIX}/include/librealsense2"
+
 export CMAKE_CONFIG="Release"
 
 mkdir "build_${PKG_NAME}_${CMAKE_CONFIG}"
@@ -15,3 +17,5 @@ make
 make install
 
 popd
+
+rm -f "${PREFIX}/include/librealsense2"
