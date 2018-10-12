@@ -28,9 +28,9 @@ if( realsense2_FOUND AND OpenCV_FOUND AND Boost_FOUND )
   # Additional Include Directories
   message( STATUS "realsense_INCLUDE_DIR = ${realsense_INCLUDE_DIR}" )
   message( STATUS "realsense2_LIBRARY = ${realsense2_LIBRARY}" )
-  include_directories( ${realsense_INCLUDE_DIR} )
-  include_directories( ${OpenCV_INCLUDE_DIRS} )
-  include_directories( ${Boost_INCLUDE_DIRS} )
+  target_include_directories( rs_bag2image PRIVATE ${realsense_INCLUDE_DIR} )
+  target_include_directories( rs_bag2image PRIVATE ${OpenCV_INCLUDE_DIRS} )
+  target_include_directories( rs_bag2image PRIVATE ${Boost_INCLUDE_DIRS} )
 
   # Additional Dependencies
   target_link_libraries( rs_bag2image ${realsense2_LIBRARY} )
