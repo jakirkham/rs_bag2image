@@ -26,6 +26,8 @@ find_package( Boost REQUIRED COMPONENTS filesystem )
 
 if( realsense2_FOUND AND OpenCV_FOUND AND Boost_FOUND )
   # Additional Include Directories
+  message( STATUS "realsense_INCLUDE_DIR = ${realsense_INCLUDE_DIR}" )
+  message( STATUS "realsense2_LIBRARY = ${realsense2_LIBRARY}" )
   include_directories( ${realsense_INCLUDE_DIR} )
   include_directories( ${OpenCV_INCLUDE_DIRS} )
   include_directories( ${Boost_INCLUDE_DIRS} )
