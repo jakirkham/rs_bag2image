@@ -1,6 +1,7 @@
 #!/bin/bash
 
-ln -s "/usr/include/librealsense2" "${PREFIX}/include/librealsense2"
+export CFLAGS="${CFLAGS} -I/usr/include/librealsense2 -L/usr/lib/x86_64-linux-gnu -lusb-1.0"
+export CXXFLAGS="${CXXFLAGS} -I/usr/include/librealsense2 -L/usr/lib/x86_64-linux-gnu -lusb-1.0"
 
 export CMAKE_CONFIG="Release"
 
@@ -17,5 +18,3 @@ make
 make install
 
 popd
-
-rm -f "${PREFIX}/include/librealsense2"
